@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const URLcurrent = 'https://api.openweathermap.org/data/2.5/weather';
-const URLforecast = 'https://api.openweathermap.org/data/2.5/forecast/';
+const URLforecast = 'https://api.openweathermap.org/data/2.5/forecast';
 const API_KEY = '079e60bf630788fdcc1212311df00f12';
 
 export const getWeather = async (query) => {
@@ -21,7 +21,8 @@ export const getForecast = async (query) => {
         params: {
             q: query,
             units: 'metric',
-            exclude: 'hourly',
+            lat: '',
+            lon: '',
             APPID: API_KEY,
         }
     });

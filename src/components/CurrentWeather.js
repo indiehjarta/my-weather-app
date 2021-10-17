@@ -1,7 +1,6 @@
 import React from 'react';
 import DayJS from 'react-dayjs';
 
-
 const CurrentWeather = ({ weather }) => {
     return (
             <div className='current-main'>

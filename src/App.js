@@ -7,7 +7,7 @@ import { getForecast, getWeather } from './getWeather';
 const App = () => {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
-  const [forecast, setForecast] = useState({});
+  const [forecast, setForecast] = useState([]);
 
   const search = async (e) => {
     if (e.key === 'Enter') {
@@ -17,9 +17,9 @@ const App = () => {
       setWeather(data);
       setForecast(data1);
       setQuery('');
-    } 
+    }
   }
-
+  
   return (
     <div className='container'>
       <div className='sun'></div>
@@ -42,7 +42,6 @@ const App = () => {
           </div>
         )}
       </div>
-
     </div>
   );
 }
