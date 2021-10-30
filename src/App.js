@@ -14,12 +14,15 @@ const App = () => {
       const data = await getWeather(query);
       const data1 = await getForecast(query);
 
+      data ? console.log(data) : console.log('data is undefined');
+      data1 ? console.log(data1) : console.log('data1 is undefined');
+
       setWeather(data);
       setForecast(data1);
       setQuery('');
     }
   }
-  
+
   return (
     <div className='container'>
       <div className='sun'></div>
@@ -35,10 +38,10 @@ const App = () => {
       </div>
 
       <div className='info-wrapper'>
-        {weather.main && (
+        {weather?.main && (
           <div>
             <CurrentWeather weather={weather} />
-            <ForecastWeather forecast={forecast}/>
+            <ForecastWeather forecast={forecast} />
           </div>
         )}
       </div>
