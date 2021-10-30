@@ -10,11 +10,13 @@ const App = () => {
   const [forecast, setForecast] = useState({});
 
   const search = async (e) => {
-    if (e.key === 'Enter') {
-      const data = await getWeather(query);
-      const data1 = await getForecast(query);
 
-      data ? console.log(data) : console.log('data is undefined');
+    if (e.key === 'Enter') {
+      let data;
+      // const data = await getWeather(query);
+      const data1 = await getForecast(query);
+      
+      // data ? console.log(data) : console.log('data is undefined');
       data1 ? console.log(data1) : console.log('data1 is undefined');
 
       setWeather(data);
@@ -34,7 +36,9 @@ const App = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyPress={search}
-          placeholder='Search city...' />
+          placeholder='Search city...'
+          autoFocus
+        />
       </div>
 
       <div className='info-wrapper'>

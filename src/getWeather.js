@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const URLcurrent = 'https://api.openweathermap.org/data/2.5/weather';
-const URLforecast = 'https://pro.openweathermap.org/data/2.5/forecast/hourly';
+const URLforecast = 'https://api.openweathermap.org/data/2.5/onecall';
 const API_KEY = '079e60bf630788fdcc1212311df00f12';
 
 export const getWeather = async (query) => {
@@ -21,17 +21,19 @@ export const getWeather = async (query) => {
 }
 
 export const getForecast = async (query) => {
+    //todo bara hårdkodade coordinater växjö än så länge 
     try {
-        const { data1 } = await axios.get(URLforecast, {
+        const { data } = await axios.get(URLforecast, {
             params: {
                 q: query,
                 units: 'metric',
-                /*  lat: '',
-                lon: '', */
+                lat: '56.8790',
+                lon: '14.8059',
                 appid: API_KEY,
+                exclude: 'current,minutely,hourly'
             }
         });
-        return data1;
+        return data;
     }
     catch (err) {
         console.log(err);
