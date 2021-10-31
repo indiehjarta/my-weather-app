@@ -7,20 +7,15 @@ import { getForecast, getWeather } from './getWeather';
 const App = () => {
   const [query, setQuery] = useState('växjö');
   const [weather, setWeather] = useState({});
-  const [forecast, setForecast] = useState({});
+  const [forecast, setForecast] = useState([]);
 
   const search = async (e) => {
 
     if (e.key === 'Enter') {
       const data = await getWeather(query);
-      const data1 = await getForecast(query);
-
-
-      data1.list.forEach(forecast => {
-        // console.log(forecast)
-        const { dt_txt, main: { temp, feels_like, humidity }, wind: { speed } } = forecast;
-        const { description } = forecast.weather[0]
-        console.log(dt_txt, temp, feels_like, humidity, speed, description);
+      getForecast(query).then((res) => {
+        console.log(res);
+        setForecast(res);
       });
 
       setWeather(data);
@@ -42,6 +37,7 @@ const App = () => {
           placeholder='Search city...'
           autoFocus
         />
+        <p className='clarification'>Press Enter to search</p>
       </div>
 
       <div className='info-wrapper'>

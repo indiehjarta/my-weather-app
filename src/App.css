@@ -65,6 +65,11 @@ h1 {
 .search::placeholder { color: #FFF; }
 .search:focus { outline: none; }
 
+.clarification {
+  color: #FFF;
+  margin: 2rem 0;
+}
+
 /* THE "CURRENT WEATHER INFO" TO THE RIGHT */
 
 .current-main {
