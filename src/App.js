@@ -5,22 +5,25 @@ import ForecastWeather from './components/ForecastWeather';
 import { getForecast, getWeather } from './getWeather';
 
 const App = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('växjö');
   const [weather, setWeather] = useState({});
   const [forecast, setForecast] = useState({});
 
   const search = async (e) => {
 
     if (e.key === 'Enter') {
-      let data;
-      // const data = await getWeather(query);
+      const data = await getWeather(query);
       const data1 = await getForecast(query);
-      
-      // data ? console.log(data) : console.log('data is undefined');
-      data1 ? console.log(data1) : console.log('data1 is undefined');
+
+
+      data1.list.forEach(forecast => {
+        // console.log(forecast)
+        const { dt_txt, main: { temp, feels_like, humidity }, wind: { speed } } = forecast;
+        const { description } = forecast.weather[0]
+        console.log(dt_txt, temp, feels_like, humidity, speed, description);
+      });
 
       setWeather(data);
-      setForecast(data1);
       setQuery('');
     }
   }
