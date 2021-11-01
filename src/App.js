@@ -14,16 +14,8 @@ const App = () => {
     if (e.key === 'Enter') {
       const data = await getWeather(query);
       const data1 = await getForecast(query);
-
-
-      data1.list.forEach(forecast => {
-        // console.log(forecast)
-        const { dt_txt, main: { temp, feels_like, humidity }, wind: { speed } } = forecast;
-        const { description } = forecast.weather[0]
-        console.log(dt_txt, temp, feels_like, humidity, speed, description);
-      });
-
       setWeather(data);
+      setForecast(data1)
       setQuery('');
     }
   }
