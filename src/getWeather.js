@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const URLcurrent = 'https://api.openweathermap.org/data/2.5/weather';
-// const URLforecast = 'https://api.openweathermap.org/data/2.5/onecall'; 
 const URLforecast = 'http://api.openweathermap.org/data/2.5/forecast';
 const API_KEY = '079e60bf630788fdcc1212311df00f12';
 
@@ -28,7 +27,6 @@ export const getForecast = async (query) => {
                 q: query,
                 units: 'metric',
                 appid: API_KEY,
-                exclude: 'current,minutely,hourly'
             }
         });
         return data;

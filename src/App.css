@@ -65,6 +65,12 @@ h1 {
 .search::placeholder { color: #FFF; }
 .search:focus { outline: none; }
 
+.enter { 
+  color: #FFF; 
+  margin: 1rem;
+  opacity: .8;
+}
+
 /* THE "CURRENT WEATHER INFO" TO THE RIGHT */
 
 .current-main {
@@ -108,4 +114,12 @@ td, th { padding: 0.5rem 0; text-align: left; }
   bottom: 0;
   left: 0;
   background: #FFF; 
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 0 20px;
 }

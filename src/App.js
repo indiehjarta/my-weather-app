@@ -5,7 +5,7 @@ import ForecastWeather from './components/ForecastWeather';
 import { getForecast, getWeather } from './getWeather';
 
 const App = () => {
-  const [query, setQuery] = useState('växjö');
+  const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
   const [forecast, setForecast] = useState({});
 
@@ -34,6 +34,7 @@ const App = () => {
           placeholder='Search city...'
           autoFocus
         />
+        <p className='enter'>Press Enter to search</p>
       </div>
 
       <div className='info-wrapper'>
