@@ -2,16 +2,18 @@ import React from 'react';
 import Card from './Card';
 
 const ForecastWeather = ({ forecast }) => {
-
-    return (
-        <div className='forecast-wrapper'>
-            <div>
-                {forecast?.list?.map((dataPoint, index) => {
-                    return <Card data={dataPoint} key={index} />
-                })}
+    if (forecast.length >= 1) {
+        return (
+            <div className='forecast-wrapper'>
+                <div>
+                    {forecast.map((dataPoint, index) => {
+                        return <Card data={dataPoint} key={index} />
+                    })}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+    else return <></>
 }
 
 export default ForecastWeather;

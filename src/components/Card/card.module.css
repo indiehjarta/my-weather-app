@@ -1,6 +1,6 @@
 .card {
     position: relative;
-    top: 200px;
+    top: 0px;
     display: flex;
     width: 100vw;
     justify-content: space-between;
