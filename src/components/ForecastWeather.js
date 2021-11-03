@@ -5,11 +5,9 @@ const ForecastWeather = ({ forecast }) => {
     if (forecast.length >= 1) {
         return (
             <div className='forecast-wrapper'>
-                <div>
-                    {forecast.map((dataPoint, i) => {
-                        return <ForecastCard data={dataPoint} key={i} />
-                    })}
-                </div>
+                {forecast.map((dataPoint, i) => {
+                    return <ForecastCard data={dataPoint} key={i} />
+                })}
             </div>
         );
     }

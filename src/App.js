@@ -20,8 +20,7 @@ const App = () => {
     let timeAsNumber = parseInt(cleanString); //returns the time as an integer
     return timeAsNumber;
   }
-
-
+  
   const search = async (e) => {
     if (e.key === 'Enter') {
       const data = await getWeather(query);
@@ -36,7 +35,6 @@ const App = () => {
       setQuery('');
     }
   }
-
 
   return (
     <div className='container'>
