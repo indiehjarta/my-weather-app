@@ -7,7 +7,7 @@ const ForecastWeather = ({ forecast }) => {
             <div className='forecast-wrapper'>
                 <div>
                     {forecast.map((dataPoint, i) => {
-                        return <Card data={dataPoint} key={i} />
+                        return <ForecastCard data={dataPoint} key={i} />
                     })}
                 </div>
             </div>
