@@ -1,23 +1,20 @@
 import React from 'react';
+import DayJS from 'react-dayjs';
 
 
-const Card = ({ data }) => {
-
-    const day = () => {
-        let date = new Date(data.dt * 1000);
-        let day = date.getDay();
-        let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-        return days[day];
-    }
-    const { dt_txt, main: { temp } } = data;
-    const { description } = data.weather[0]
+function Card({ data }) {
+    const { dt_txt, main: { temp, feels_like, humidity }, wind: { speed } } = data;
+    const { description } = data.weather[0];
+    const forDayJS = dt_txt.split(" ")[0];
 
     return (
-        <div className='card'>
-            <h4>{dt_txt}</h4>
-            <h4> Temp: {temp}</h4>
+        <div className={'card'}>
+            <DayJS date={forDayJS} format={'dddd D MMMM'} />
+            <h4> Temp: {temp}&#176;</h4>
+            <h4> Feels like: {feels_like}</h4>
+            <h4> Humidity: {humidity}</h4>
+            <h4> Wind: {speed}</h4>
             <h4> Desc: {description}</h4>
-            <div>{day()}</div>
         </div>
     )
 }
